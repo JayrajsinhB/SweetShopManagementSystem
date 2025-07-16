@@ -30,6 +30,17 @@ class TestSweetShop(unittest.TestCase):
 
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0]["id"], "1002")
+        
+    def test_search_sweets_by_name(self):
+        shop = SweetShop()
+        shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 20)
+        shop.add_sweet("1002", "Gulab Jamun", "Milk-Based", 30, 10)
+        shop.add_sweet("1003", "Gajar Halwa", "Vegetable-Based", 40, 5)
+
+        results = shop.search_sweets(name="Gulab")
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["id"], "1002")
+
 
         
 if __name__ == '__main__':
