@@ -18,6 +18,18 @@ class TestSweetShop(unittest.TestCase):
         self.assertEqual(sweet["category"], "Nut-Based")
         self.assertEqual(sweet["price"], 50)
         self.assertEqual(sweet["quantity"], 20)
+        
+    def delete_sweet(self):
+        shop = SweetShop()
+        
+        shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 20)
+        shop.add_sweet("1002", "Gulab Jamun", "Milk-Based", 30, 10)
+    
+        shop.delete_sweet("1001")
+        result = shop.get_all_sweets()
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["id"], "1002")
 
         
 if __name__ == '__main__':
