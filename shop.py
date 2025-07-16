@@ -14,5 +14,13 @@ class SweetShop:
         }
         self.sweets.append(sweet)
         
+    def search_sweets(self, name=None, category=None, price_range=None):
+        results = self.sweets
+
+        if name:
+            results = [s for s in results if name.lower() in s["name"].lower()]
+
+        return results
+        
     def get_all_sweets(self):
         return self.sweets
