@@ -13,7 +13,8 @@ class SweetShop:
             'quantity': quantity
         }
         self.sweets.append(sweet)
-        
+
+    # Delete Sweet
     def delete_sweet(self, id):
         for sweet in self.sweets:
             if sweet["id"] == id:
@@ -22,6 +23,7 @@ class SweetShop:
         return False
 
         
+    # Search Sweet
     def search_sweets(self, name=None, category=None, price_range=None):
         results = []
 
@@ -44,6 +46,15 @@ class SweetShop:
 
         return results
 
+    # Sort Sweets
+    def sort_sweets(self, by="id"):
+        if by not in ["id", "name", "category", "price", "quantity"]:
+            raise ValueError("Invalid sort key")
+
+        return sorted(self.sweets, key=lambda sweet: sweet[by])
+
+
+    # Update Sweet
     def update_sweet(self, id, name = None, category = None, price = None, quantity = None):
         for sweet in self.sweets:
             if sweet['id'] == id:
