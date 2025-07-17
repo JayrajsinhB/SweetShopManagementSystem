@@ -36,7 +36,23 @@ class SweetShop:
 
         return results
 
+    def update_sweet(self, id, name = None, category = None, price = None, quantity = None):
+        for sweet in self.sweets:
+            if sweet['id'] == id:
+                if name is not None:
+                    sweet["name"] = name
+                if category is not None:
+                    sweet["category"] = category
+                if price is not None:
+                    sweet["price"] = int(price)
+                if quantity is not None:
+                    sweet["quantity"] = int(quantity)
+                
+                return True
+            
+        return False
 
+                
         
     def get_all_sweets(self):
         return self.sweets
