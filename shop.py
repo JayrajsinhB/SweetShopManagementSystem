@@ -85,9 +85,6 @@ class SweetShop:
                 return f"Restocked {quantity} of {sweet['name']}"
         raise ValueError("Sweet not found")
 
-    
-    
-    
     # Update Sweet
     def update_sweet(self, id, name = None, category = None, price = None, quantity = None):
         for sweet in self.sweets:
@@ -106,6 +103,5 @@ class SweetShop:
         return False
 
     
-        
     def get_all_sweets(self):
         return self.sweets
