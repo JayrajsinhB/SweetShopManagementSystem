@@ -3,6 +3,8 @@ class SweetShop:
     def __init__(self):
         self.sweets = []
         
+        
+    # Main Operations
     # Add Sweets
     def add_sweet(self, id, name, category, price, quantity):
         sweet = {
@@ -26,6 +28,7 @@ class SweetShop:
     def view_sweets(self):
         return self.sweets
     
+    # Search & Sort Features
     # Search Sweet
     def search_sweets(self, name=None, category=None, price_range=None):
         results = []
@@ -56,7 +59,28 @@ class SweetShop:
 
         return sorted(self.sweets, key=lambda sweet: sweet[by])
 
+    # Inventory Management
+    # Get Sweets
+    def get_sweet(self, id):
+        for sweet in self.sweets:
+            if sweet["id"] == id:
+                return sweet
+        return None
+    
+    # Purchase Sweets
+    def purchase_sweet(self, id, quantity):
+        for sweet in self.sweets:
+            if sweet["id"] == id:
+                if sweet["quantity"] < quantity:
+                    raise ValueError("Not enough stock available")
+                sweet["quantity"] -= quantity
+                return f"Purchased {quantity} of {sweet['name']}"
+        raise ValueError("Sweet not found")
 
+    
+    
+    
+    
     # Update Sweet
     def update_sweet(self, id, name = None, category = None, price = None, quantity = None):
         for sweet in self.sweets:
@@ -74,7 +98,7 @@ class SweetShop:
             
         return False
 
-                
+    
         
     def get_all_sweets(self):
         return self.sweets
