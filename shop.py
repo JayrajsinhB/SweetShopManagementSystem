@@ -66,7 +66,7 @@ class SweetShop:
             if sweet["id"] == id:
                 return sweet
         return None
-    
+
     # Purchase Sweets
     def purchase_sweet(self, id, quantity):
         for sweet in self.sweets:
