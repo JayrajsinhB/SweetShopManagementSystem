@@ -149,7 +149,40 @@ class TestSweetShop(unittest.TestCase):
     
         self.assertEqual(result, "Purchased 3 of Kaju Katli")
         self.assertEqual(shop.get_sweet("1001")["quantity"], 7)
+        
+    def test_restock_sweet(self):
+        shop = SweetShop()
+        shop.add_sweet("1002", "Rasgulla", "Syrupy", 30, 5)
+        
+        result = shop.restock_sweet("1002", 10)
+        
+        self.assertEqual(result, "Restocked 10 of Rasgulla")
+        self.assertEqual(shop.get_sweet("1002")["quantity"], 15)
+        
+    def test_purchase_insufficient_stock(self):
+        shop = SweetShop()
+        shop.add_sweet("1003", "Ladoo", "Traditional", 20, 5)
+        
+        with self.assertRaises(ValueError) as context:
+            shop.purchase_sweet("1003", 10)
+        
+        self.assertEqual(str(context.exception), "No enough stock available, sorry!")
 
+    def test_purchase_invalid_id(self):
+        shop = SweetShop()
+        
+        with self.assertRaises(ValueError) as context:
+            shop.purchase_sweet("1012", 10)
+        
+        self.assertEqual(str(context.exception), "Invalid sweet ID")
+        
+    def test_restock_invalid_id(self):
+        shop = SweetShop()
+        
+        with self.assertRaises(ValueError) as context:
+            shop.restock_sweet("1012", 10)
+        
+        self.assertEqual(str(context.exception), "Invalid sweet ID")
     
 if __name__ == '__main__':
     unittest.main()
