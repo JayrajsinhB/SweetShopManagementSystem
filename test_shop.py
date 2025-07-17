@@ -51,8 +51,8 @@ class TestSweetShop(unittest.TestCase):
         results = shop.search_sweets(category = "Milk-Based")
         
         self.assertEqual(len(results), 2)
-        self.assertEqual(results[0]["Name"], "Gulab Jamun")
-        self.assertEqual(results[1]["Name"], "Rasgulla")
+        self.assertEqual(results[0]["name"], "Gulab Jamun")
+        self.assertEqual(results[1]["name"], "Rasgulla")
 
     
 if __name__ == '__main__':
