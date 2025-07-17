@@ -75,7 +75,7 @@ class SweetShop:
                     raise ValueError("Not enough stock available")
                 sweet["quantity"] -= quantity
                 return f"Purchased {quantity} of {sweet['name']}"
-        raise ValueError("Sweet not found")
+        raise ValueError("Invalid sweet ID")
 
     # Restock Sweets
     def restock_sweet(self, id, quantity):
@@ -83,7 +83,7 @@ class SweetShop:
             if sweet["id"] == id:
                 sweet["quantity"] += quantity
                 return f"Restocked {quantity} of {sweet['name']}"
-        raise ValueError("Sweet not found")
+        raise ValueError("Invalid sweet ID")
 
     # Update Sweet
     def update_sweet(self, id, name = None, category = None, price = None, quantity = None):

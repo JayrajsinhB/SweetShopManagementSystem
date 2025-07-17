@@ -166,7 +166,7 @@ class TestSweetShop(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             shop.purchase_sweet("1003", 10)
         
-        self.assertEqual(str(context.exception), "No enough stock available, sorry!")
+        self.assertEqual(str(context.exception), "Not enough stock available")
 
     def test_purchase_invalid_id(self):
         shop = SweetShop()
