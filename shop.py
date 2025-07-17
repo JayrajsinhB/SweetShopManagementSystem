@@ -77,7 +77,14 @@ class SweetShop:
                 return f"Purchased {quantity} of {sweet['name']}"
         raise ValueError("Sweet not found")
 
-    
+    # Restock Sweets
+    def restock_sweet(self, id, quantity):
+        for sweet in self.sweets:
+            if sweet["id"] == id:
+                sweet["quantity"] += quantity
+                return f"Restocked {quantity} of {sweet['name']}"
+        raise ValueError("Sweet not found")
+
     
     
     
