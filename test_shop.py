@@ -21,7 +21,7 @@ class TestSweetShop(unittest.TestCase):
         self.assertEqual(sweet["price"], 50)
         self.assertEqual(sweet["quantity"], 20)
         
-    def delete_sweet(self):
+    def test_delete_sweet(self):
         shop = SweetShop()
         
         shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 20)
