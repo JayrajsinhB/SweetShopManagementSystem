@@ -118,7 +118,3 @@ AI assistance was used during development. AI commits are marked with #AI: in th
 📌 Note
 All features are implemented in Python with no external dependencies.
 Feel free to clone, run, test, and review the commit history.
-
----
-
-If you want, I can generate the final README.md file content so you can directly copy-paste.
