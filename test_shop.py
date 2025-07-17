@@ -106,6 +106,16 @@ class TestSweetShop(unittest.TestCase):
         sorted_sweets = shop.sort_sweets(by="price")
         prices = [sweet["price"] for sweet in sorted_sweets]
         self.assertEqual(prices, [30, 50, 70])
+        
+    def test_sort_sweets_by_quantity(self):
+        shop = SweetShop()
+        shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 20)
+        shop.add_sweet("1002", "Gulab Jamun", "Milk-Based", 30, 10)
+        shop.add_sweet("1003", "Rasgulla", "Milk-Based", 70, 15)
+
+        sorted_sweets = shop.sort_sweets(by="quantity")
+        quantities = [sweet["quantity"] for sweet in sorted_sweets]
+        self.assertEqual(quantities, [10, 15, 20])
     
     def test_update_sweet(self):
         shop = SweetShop()
