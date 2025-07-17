@@ -140,6 +140,16 @@ class TestSweetShop(unittest.TestCase):
         self.assertEqual(result[0]["name"], "Kaju Katli")
         self.assertEqual(result[0]["price"], 70)
         self.assertEqual(result[0]["quantity"], 20)  # unchanged
+        
+    def test_purchase_sweet(self):
+        shop = SweetShop()
+        shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 10)
+    
+        result = shop.purchase_sweet("1001", 3)
+    
+        self.assertEqual(result, "Purchased 3 of Kaju Katli")
+        self.assertEqual(shop.get_sweet("1001")["quantity"], 7)
+
     
 if __name__ == '__main__':
     unittest.main()
