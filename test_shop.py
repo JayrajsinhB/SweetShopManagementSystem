@@ -77,6 +77,15 @@ class TestSweetShop(unittest.TestCase):
         ids = [sweet["id"] for sweet in sorted_sweets]
         self.assertEqual(ids, ["1001", "1002", "1003"])
 
+    def test_sort_sweets_by_name(self):
+        shop = SweetShop()
+        shop.add_sweet("1003", "Rasgulla", "Milk-Based", 70, 15)
+        shop.add_sweet("1001", "Kaju Katli", "Nut-Based", 50, 20)
+        shop.add_sweet("1002", "Gulab Jamun", "Milk-Based", 30, 10)
+
+        sorted_sweets = shop.sort_sweets(by="name")
+        names = [sweet["name"] for sweet in sorted_sweets]
+        self.assertEqual(names, ["Gulab Jamun", "Kaju Katli", "Rasgulla"])
         
     
     def test_update_sweet(self):
