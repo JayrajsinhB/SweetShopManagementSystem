@@ -22,7 +22,10 @@ class SweetShop:
                 return True
         return False
 
-        
+    # View Sweets
+    def view_sweets(self):
+        return self.sweets
+    
     # Search Sweet
     def search_sweets(self, name=None, category=None, price_range=None):
         results = []
